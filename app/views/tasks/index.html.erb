@@ -26,8 +26,8 @@
     <%= paginate @tasks %>
   </div>
 <% end %>
-  
-  <%= link_to 'タスクの投稿', new_task_path, class: "btn btn-primary" %>
+  <%= link_to '新規タスクの投稿', new_task_path, class: "btn btn-primary" %>
+  <%= link_to 'トップ画面に戻る', user_path(current_user), class: 'btn btn-danger' %>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
