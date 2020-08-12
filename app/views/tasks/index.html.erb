@@ -1,7 +1,7 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+
+<p>ログイン完了ユーザ: <%= current_user.name %></p>
   
-  <h1>メッセージ一覧</h1>
+<h1>タスク一覧</h1>
 
 <% if @tasks.any? %>
   <table class="table table-striped">
@@ -20,8 +20,8 @@
           <td><%= task.content %></td>
           <td>
             <% if current_user == task.user %>
-            <%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
+              <%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -33,11 +33,3 @@
 <% end %>
   <%= link_to '新規タスクの投稿', new_task_path, class: "btn btn-primary" %>
   
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to the Tasklist</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
-  </div>
-<% end %>

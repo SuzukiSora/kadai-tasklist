@@ -1,13 +1,5 @@
 <%= form_with(model: @task, local: true) do |f| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation" class="alert alert-warning">
-      <ul class="mb-0">
-        <% task.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'layouts/error_messages', model: f.object %>
 
   <div class="form-group">
     <%= f.label :status, '状態' %>
@@ -20,5 +12,5 @@
   </div>
 
   <%= f.submit '投稿', class: 'btn btn-primary' %>
-  <%= link_to 'トップ画面に戻る', tasks_path, class: 'btn btn-danger' %>
+  <%= link_to 'トップ画面に戻る', tasks_path, class: "btn btn-warning " %>
 <% end %>
