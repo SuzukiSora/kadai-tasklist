@@ -18,6 +18,11 @@
           <td><%= link_to task.id, task %></td>
           <td><%= task.status %></td>
           <td><%= task.content %></td>
+          <td>
+            <% if current_user == task.user %>
+            <%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -27,7 +32,7 @@
   </div>
 <% end %>
   <%= link_to '新規タスクの投稿', new_task_path, class: "btn btn-primary" %>
-  <%= link_to 'トップ画面に戻る', user_path(current_user), class: 'btn btn-danger' %>
+  
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
